@@ -1,0 +1,25 @@
+LOAD CSV FROM "https://raw.githubusercontent.com/domspad/acro/master/poses.csv" AS line
+
+RETURN count(*);
+
+
+LOAD CSV FROM "https://raw.githubusercontent.com/domspad/acro/master/poses.csv" AS line WITH line
+
+RETURN line
+
+LIMIT 5;
+
+
+LOAD CSV FROM "file:///Users/dominicspadacene/Desktop/acro_graph/poses.csv" AS row
+
+CREATE (p:Pose {id: row.id, name: row.name});
+
+
+
+
+LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/domspad/acro/master/poses.csv" AS row
+
+CREATE (p:Pose {name: row.name})
+
+CREATE (:Pose {name: row.name});
+
